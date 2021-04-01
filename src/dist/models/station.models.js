@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.StationModel = void 0;
 const mongoose_1 = require("mongoose");
 const car_models_1 = require("./car.models");
 const StationSchema = new mongoose_1.Schema({

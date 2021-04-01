@@ -1,11 +1,11 @@
 import express from "express";
-import { nextTick } from "process";
-import {
-  StationModel,
-  IStation,
-  IStationSchema,
-} from "../../models/station.models";
-import { ICar } from "../../models/car.models";
+import { StationModel, IStationSchema } from "../../models/station.models";
+import * as yup from "yup";
+
+let carSchema = yup.object().shape({
+  name: yup.string().required().min(3),
+  available: yup.boolean(),
+});
 
 const router = express.Router();
 interface IRequestWithStation extends express.Request {
@@ -41,7 +41,12 @@ router.post(
   "/station/:stationID/car",
   getStation,
   async (req: IRequestWithStation, res, next) => {
-    const car = req.station["cars"].create({ name: req.body.name });
+    try {
+      await carSchema.isValid(req.body);
+    } catch (err) {
+      return res.send(400);
+    }
+    const car = req.station["cars"].create(req.body);
     req.station.cars.push(car);
     req.station.save();
     return res.send(car.toJSON());
@@ -63,6 +68,11 @@ router.put(
   "/station/:stationID/car/:carID",
   getStation,
   async (req: IRequestWithStation, res, next) => {
+    try {
+      await carSchema.isValid(req.body);
+    } catch (err) {
+      return res.send(400);
+    }
     const car = req.station.cars.id(req.params.carID);
     car.set(req.body);
     await req.station.save();

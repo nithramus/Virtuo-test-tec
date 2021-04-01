@@ -5,7 +5,11 @@ interface ICar {
 interface ICarSchema extends ICar, Types.Subdocument {}
 
 const CarSchema = new Schema({
-  name: String,
+  name: {
+    type: String,
+    minLength: 3,
+  },
+  available: Boolean,
 });
 
 export { ICar, CarSchema, ICarSchema };

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -e ts,js,json --ignore 'dist' --exec 'npm run start' src/index.ts || exit 1",
+    "dev": "nodemon -e ts,js,json --ignore dist --exec 'npm run start' src/index.ts || exit 1",
     "start": "tsc && node --inspect=0.0.0.0:9229 dist/main.js",
     "test": "mocha test/ --timeout 10000"
   },
@@ -19,9 +19,11 @@
   "dependencies": {
     "@types/mongoose": "5.10.1",
     "@types/node": "10.14.0",
+    "@types/yup": "^0.29.11",
     "express": "^4.16.4",
     "mocha": "^8.3.2",
     "mongoose": "5.10.1",
-    "superagent": "^6.1.0"
+    "superagent": "^6.1.0",
+    "yup": "^0.32.9"
   }
 }
