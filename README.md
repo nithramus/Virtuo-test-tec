@@ -5,16 +5,23 @@ App is listening on port 3000.
 
 #### Requirements
 
-Node
 Docker
 docker-compose
-typescript
 
-##### Setup
+#### Simple Launch
+
+docker-compoes up
+
+##### Dev Setup
 
 Install package in src:
 
 - cd src && npm install
+
+Uncomment the following lines in docker-compose:
+
+"# volumes:"
+"# - ./src/:/usr/src/app"
 
 Go to root directory:
 

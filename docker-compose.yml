@@ -14,8 +14,8 @@ services:
     command: bash -c "npm run dev"
     environment:
       NODE_ENV: "local"
-    volumes:
-      - ./src/:/usr/src/app
+    # volumes:
+    #   - ./src/:/usr/src/app
     depends_on:
       - db_mongo
     ports:
