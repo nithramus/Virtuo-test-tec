@@ -1,3 +1,8 @@
+### Summary
+
+This is a simple app with node express mongodb mongoose.
+App is listening on port 3000.
+
 #### Requirements
 
 Node
@@ -9,16 +14,17 @@ typescript
 
 Install package in src:
 
-- npm install
+- cd src && npm install
 
 Go to root directory:
 
-- docker-compose up
+- cd .. && docker-compose up
 
 #### Test
 
 Workdir: src
-npm run test
+
+- cd src && npm run test
 
 #### Debug
 

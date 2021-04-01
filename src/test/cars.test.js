@@ -16,7 +16,6 @@ describe("client", () => {
     });
     it("Get cars", async () => {
       const cars = await utils.getCars(UserOne, stationId);
-      console.log(cars);
       assert.notStrictEqual(cars.length, 0);
     });
     it("update a car", async () => {
