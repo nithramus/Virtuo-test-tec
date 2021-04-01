@@ -1,5 +1,3 @@
-Hey
-
 #### Requirements
 
 Node
